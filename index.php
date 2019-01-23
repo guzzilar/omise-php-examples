@@ -22,13 +22,18 @@ include_once '_header.php';
                     </tr>
 
                     <tr>
+                        <td class="key">Omise-PHP Version</td>
+                        <td class="value">: <?= class_exists('\Omise\ApiRequestor') ? \Omise\ApiRequestor::OMISE_PHP_LIB_VERSION : '<span class="color-red">unknown</span> (Class <code>\Omise\ApiRequestor</code> does not exist)'; ?></td>
+                    </tr>
+
+                    <tr>
                         <td class="key">cURL enabled</td>
                         <td class="value">: <?= function_exists('curl_version') ? 'yes' : '<span class="color-red">no</span>'; ?></td>
                     </tr>
 
                     <tr>
                         <td class="key">OMISE_PUBLIC_KEY defined</td>
-                        <td class="value">: <?= defined('OMISE_PUBLIC_KEY') ? 'yes' : '<span class="color-red">no</span> (see, <code>_config.php</code>)'; ?></td>
+                        <td class="value">: <?= defined('OMISE_PUBLIC_KEY') ? 'yes: ' . OMISE_PUBLIC_KEY : '<span class="color-red">no</span> (see, <code>_config.php</code>)'; ?></td>
                     </tr>
 
                     <tr>
@@ -38,12 +43,12 @@ include_once '_header.php';
 
                     <tr>
                         <td class="key">OMISE_API_VERSION defined</td>
-                        <td class="value">: <?= defined('OMISE_API_VERSION') ? 'yes' : '<span class="color-red">no</span> (see, <code>_config.php</code>)'; ?></td>
+                        <td class="value">: <?= defined('OMISE_API_VERSION') ? 'yes: ' . OMISE_API_VERSION : '<span class="color-red">no</span> (see, <code>_config.php</code>)'; ?></td>
                     </tr>
 
                     <tr>
                         <td class="key">OMISE_USER_AGENT_SUFFIX defined</td>
-                        <td class="value">: <?= defined('OMISE_USER_AGENT_SUFFIX') ? 'yes' : '<span class="color-red">no</span> (see, <code>_config.php</code>)'; ?></td>
+                        <td class="value">: <?= defined('OMISE_USER_AGENT_SUFFIX') ? 'yes: ' . OMISE_USER_AGENT_SUFFIX : '<span class="color-red">no</span> (see, <code>_config.php</code>)'; ?></td>
                     </tr>
 
                     <tr>
