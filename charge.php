@@ -11,7 +11,7 @@ include_once '_header.php';
             <div class="col-body content">
                 <h4>Retrieve charges</h4>
                 <?php
-                $charges = \Omise\Charge::schedules();
+                $charges = \Omise\Charge::retrieve();
                 ?>
                 <pre><?php print_r($charges); ?></pre>
             </div>
@@ -128,6 +128,16 @@ include_once '_header.php';
                 <pre><?php print_r($charge); ?></pre>
 
                 <span class="note">Note, this test creates a new one charge before reversing the charge.</span>
+            </div>
+        </div>
+
+        <div class="col col-6">
+            <div class="col-body content">
+                <h4>Retrieve charge's schedules</h4>
+                <?php
+                $charges = \Omise\Charge::schedules();
+                ?>
+                <pre><?php print_r($charges); ?></pre>
             </div>
         </div>
     </div>
