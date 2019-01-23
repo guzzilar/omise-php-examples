@@ -5,6 +5,7 @@
 
     <li><a href="./account.php">Acccount</a></li>
     <li><a href="./balance.php">Balance</a></li>
+    <li><a href="./capabilities.php">Capabilities</a></li>
     <li><a href="./card.php">Card</a></li>
     <li><a href="./charge.php">Charge</a></li>
     <li><a href="./customer.php">Customer</a></li>
