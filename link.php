@@ -8,7 +8,8 @@ include_once '_header.php';
 
     <div class="row">
         <div class="col col-6">
-            <div class="col-body">
+            <div class="col-body content">
+                <h4>Retrieve links (filtered by <code>order=reverse_chronological</code> & <code>limit=5</code>)</h4>
                 <?php
                 $links = \Omise\Link::retrieve('?order=reverse_chronological&limit=5');
                 ?>
@@ -17,19 +18,8 @@ include_once '_header.php';
         </div>
 
         <div class="col col-6">
-            <div class="col-body">
-                <?php
-                $link = \Omise\Link::retrieve('link_test_5ckoalpg9asmhkh4hfc');
-                $link->reload();
-                ?>
-                <pre><?php print_r($link); ?></pre>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col col-6">
-            <div class="col-body">
+            <div class="col-body content">
+                <h4>Create link</h4>
                 <?php
                 $link = \Omise\Link::create([
                     'amount'      => 3000,
@@ -41,9 +31,23 @@ include_once '_header.php';
                 <pre><?php print_r($link); ?></pre>
             </div>
         </div>
+    </div>
+
+    <div class="row">
+        <div class="col col-6">
+            <div class="col-body content">
+                <h4>Retrieve link</h4>
+                <?php
+                $link = \Omise\Link::retrieve($link['id']);
+                $link->reload();
+                ?>
+                <pre><?php print_r($link); ?></pre>
+            </div>
+        </div>
 
         <div class="col col-6">
-            <div class="col-body">
+            <div class="col-body content">
+                <h4>Search links (filtered by <code>used=false</code>)</h4>
                 <?php
                 $links = \Omise\Link::search()->filter(['used' => false]);
                 $links['object'];
