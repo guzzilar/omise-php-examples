@@ -10,7 +10,7 @@ include_once '_header.php';
         <div class="col col-6">
             <div class="col-body">
                 <?php
-                $links = OmiseLink::retrieve('?order=reverse_chronological&limit=5');
+                $links = \Omise\Link::retrieve('?order=reverse_chronological&limit=5');
                 ?>
                 <pre><?php print_r($links); ?></pre>
             </div>
@@ -19,7 +19,7 @@ include_once '_header.php';
         <div class="col col-6">
             <div class="col-body">
                 <?php
-                $link = OmiseLink::retrieve('link_test_5ckoalpg9asmhkh4hfc');
+                $link = \Omise\Link::retrieve('link_test_5ckoalpg9asmhkh4hfc');
                 $link->reload();
                 ?>
                 <pre><?php print_r($link); ?></pre>
@@ -31,7 +31,7 @@ include_once '_header.php';
         <div class="col col-6">
             <div class="col-body">
                 <?php
-                $link = OmiseLink::create([
+                $link = \Omise\Link::create([
                     'amount'      => 3000,
                     'currency'    => 'thb',
                     'title'       => 'Created Link at ' . time(),
@@ -45,7 +45,7 @@ include_once '_header.php';
         <div class="col col-6">
             <div class="col-body">
                 <?php
-                $links = OmiseLink::search()->filter(['used' => false]);
+                $links = \Omise\Link::search()->filter(['used' => false]);
                 $links['object'];
                 ?>
                 <pre><?php print_r($links); ?></pre>

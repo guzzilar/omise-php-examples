@@ -10,7 +10,7 @@ include_once '_header.php';
         <div class="col col-6">
             <div class="col-body">
                 <?php
-                $events = OmiseEvent::retrieve('?limit=3');
+                $events = \Omise\Event::retrieve('?limit=3');
                 ?>
                 <pre><?php print_r($events); ?></pre>
             </div>  
@@ -19,7 +19,7 @@ include_once '_header.php';
         <div class="col col-6">
             <div class="col-body">
                 <?php
-                $event = OmiseEvent::retrieve('evnt_test_59trmbv1hz9yux9wtcq');
+                $event = \Omise\Event::retrieve('evnt_test_59trmbv1hz9yux9wtcq');
                 $event->reload();
                 ?>
                 <pre><?php print_r($event); ?></pre>

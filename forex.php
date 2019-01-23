@@ -10,7 +10,7 @@ include_once '_header.php';
         <div class="col col-6">
             <div class="col-body">
                 <?php
-                $forex = OmiseForex::retrieve('JPY');
+                $forex = \Omise\Forex::retrieve('JPY');
                 $forex->reload();
                 ?>
                 <pre><?php print_r($forex); ?></pre>

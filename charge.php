@@ -11,7 +11,7 @@ include_once '_header.php';
             <div class="col-body content">
                 <h4>Retrieve charges</h4>
                 <?php
-                $charges = OmiseCharge::schedules();
+                $charges = \Omise\Charge::schedules();
                 ?>
                 <pre><?php print_r($charges); ?></pre>
             </div>
@@ -21,7 +21,7 @@ include_once '_header.php';
             <div class="col-body content">
                 <h4>Retrieve charges (filtered by <code>order=reverse_chronological</code> & <code>limit=3</code>)</h4>
                 <?php
-                $charges = OmiseCharge::retrieve('?order=reverse_chronological&limit=3');
+                $charges = \Omise\Charge::retrieve('?order=reverse_chronological&limit=3');
                 ?>
                 <pre><?php print_r($charges); ?></pre>
             </div>
@@ -31,7 +31,7 @@ include_once '_header.php';
             <div class="col-body content">
                 <h4>Retrieve charge</h4>
                 <?php
-                $charge = OmiseCharge::retrieve($charges['data'][0]['id']);
+                $charge = \Omise\Charge::retrieve($charges['data'][0]['id']);
                 $charge->reload();
                 ?>
                 <pre><?php print_r($charge); ?></pre>
@@ -44,7 +44,7 @@ include_once '_header.php';
             <div class="col-body content">
                 <h4>Search charges (filtered by <code>paid=false</code>)</h4>
                 <?php
-                $searchCharges = OmiseCharge::search()->filter(['paid' => false]);
+                $searchCharges = \Omise\Charge::search()->filter(['paid' => false]);
                 $searchCharges['object'];
                 ?>
                 <pre><?php print_r($searchCharges); ?></pre>
@@ -56,7 +56,7 @@ include_once '_header.php';
                 <h4>Create charge</h4>
                 <?php
                 $token  = create_card_token();
-                $charge = OmiseCharge::create([
+                $charge = \Omise\Charge::create([
                     'card'      => $token['id'],
                     'amount'    => 55000,
                     'currency'  => 'THB',
@@ -116,7 +116,7 @@ include_once '_header.php';
                 <h4>Reverse charge</h4>
                 <?php
                 $token  = create_card_token();
-                $charge = OmiseCharge::create([
+                $charge = \Omise\Charge::create([
                     'card'      => $token['id'],
                     'amount'    => 55000,
                     'currency'  => 'THB',

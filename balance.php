@@ -11,7 +11,7 @@ include_once '_header.php';
             <div class="col-body content">
                 <h4>Retrieve balance</h4>
                 <?php
-                $balance = OmiseBalance::retrieve();
+                $balance = \Omise\Balance::retrieve();
                 ?>
                 <pre><?php print_r($balance); ?></pre>
             </div>

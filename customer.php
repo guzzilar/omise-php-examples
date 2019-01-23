@@ -11,7 +11,7 @@ include_once '_header.php';
             <div class="col-body content">
                 <h4>Retrieve customers (filtered by <code>limit=3</code>)</h4>
                 <?php
-                $customers = OmiseCustomer::retrieve('?limit=3');
+                $customers = \Omise\Customer::retrieve('?limit=3');
                 ?>
                 <pre><?php print_r($customers); ?></pre>
             </div>
@@ -21,7 +21,7 @@ include_once '_header.php';
             <div class="col-body content">
                 <h4>Retrieve customer</h4>
                 <?php
-                $customer = OmiseCustomer::retrieve($customers['data'][0]['id']);
+                $customer = \Omise\Customer::retrieve($customers['data'][0]['id']);
                 ?>
                 <pre><?php print_r($customer); ?></pre>
             </div>
@@ -31,7 +31,7 @@ include_once '_header.php';
             <div class="col-body content">
                 <h4>Search</h4>
                 <?php
-                $searchCustomers = OmiseCustomer::search();
+                $searchCustomers = \Omise\Customer::search();
                 $searchCustomers['object'];
                 ?>
                 <pre><?php print_r($searchCustomers); ?></pre>
@@ -44,7 +44,7 @@ include_once '_header.php';
             <div class="col-body content">
                 <h4>Create customer</h4>
                 <?php
-                $customer = OmiseCustomer::create(['email' => 'nam@omise.co']);
+                $customer = \Omise\Customer::create(['email' => 'nam@omise.co']);
                 $customer->reload();
                 ?>
                 <pre><?php print_r($customer); ?></pre>
@@ -79,7 +79,7 @@ include_once '_header.php';
             <div class="col-body content">
                 <h4>Retrieve customer's cards</h4>
                 <?php
-                $customer = OmiseCustomer::retrieve($customers['data'][0]['id']);
+                $customer = \Omise\Customer::retrieve($customers['data'][0]['id']);
                 $cards    = $customer->cards();
                 ?>
                 <pre><?php print_r($cards); ?></pre>

@@ -2,7 +2,7 @@
 
 function create_charge()
 {
-    $token = OmiseToken::create([
+    $token = \Omise\Token::create([
         'card' => [
             'name'             => 'Nuttanon Tester',
             'number'           => '4242424242424242',
@@ -14,7 +14,7 @@ function create_charge()
         ]
     ]);
 
-    $charge = OmiseCharge::create([
+    $charge = \Omise\Charge::create([
         'card'     => $token['id'],
         'amount'   => 100000,
         'capture'  => true,
@@ -24,7 +24,7 @@ function create_charge()
 
 function create_card_token()
 {
-    $token = OmiseToken::create([
+    $token = \Omise\Token::create([
         'card' => [
             'name'             => 'Nuttanon Tester',
             'number'           => '4242424242424242',

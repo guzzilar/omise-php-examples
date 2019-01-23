@@ -10,7 +10,7 @@ include_once '_header.php';
         <div class="col col-4">
             <div class="col-body">
                 <?php
-                $recipients = OmiseRecipient::retrieve('?limit=3');
+                $recipients = \Omise\Recipient::retrieve('?limit=3');
                 ?>
                 <pre><?php print_r($recipients); ?></pre>
             </div>
@@ -19,7 +19,7 @@ include_once '_header.php';
         <div class="col col-4">
             <div class="col-body">
                 <?php
-                $recipient = OmiseRecipient::retrieve($recipients['data'][0]['id']);
+                $recipient = \Omise\Recipient::retrieve($recipients['data'][0]['id']);
                 $recipient->reload();
                 ?>
                 <pre><?php print_r($recipient); ?></pre>
@@ -29,7 +29,7 @@ include_once '_header.php';
         <div class="col col-4">
             <div class="col-body">
                 <?php
-                $searchRecipients = OmiseRecipient::search();
+                $searchRecipients = \Omise\Recipient::search();
                 $searchRecipients['object'];
                 ?>
                 <pre><?php print_r($searchRecipients); ?></pre>
@@ -41,7 +41,7 @@ include_once '_header.php';
         <div class="col col-4">
             <div class="col-body">
                 <?php
-                $recipient = OmiseRecipient::create([
+                $recipient = \Omise\Recipient::create([
                     'name'         => 'Nuttanon ' . time(),
                     'description'  => 'Tester account, created at ' . time(),
                     'email'        => 'nam@omise.co',
@@ -82,7 +82,7 @@ include_once '_header.php';
         <div class="col col-12">
             <div class="col-body">
                 <?php
-                $recipient = OmiseRecipient::retrieve($recipients['data'][0]['id']);
+                $recipient = \Omise\Recipient::retrieve($recipients['data'][0]['id']);
                 ?>
 
                 <pre><?php print_r($recipient->schedules()); ?></pre>

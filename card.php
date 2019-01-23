@@ -13,8 +13,8 @@ include_once '_header.php';
                 <?php
                 // Prepare data
                 $token     = create_card_token();
-                $customers = OmiseCustomer::retrieve('?limit=1');
-                $customer  = OmiseCustomer::retrieve($customers['data'][0]['id']);
+                $customers = \Omise\Customer::retrieve('?limit=1');
+                $customer  = \Omise\Customer::retrieve($customers['data'][0]['id']);
                 $customer->update(['card' => $token['id']]);
                 ?>
                 <?php

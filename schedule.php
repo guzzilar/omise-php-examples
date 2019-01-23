@@ -17,15 +17,15 @@ include_once '_header.php';
             <div class="col-body content">
                 <h4>Create charge schedule</h4>
                 <?php
-                $customers = OmiseCustomer::retrieve('?limit=1&order=reverse_chronological');
-                $customer  = OmiseCustomer::retrieve($customers['data'][0]['id']);
+                $customers = \Omise\Customer::retrieve('?limit=1&order=reverse_chronological');
+                $customer  = \Omise\Customer::retrieve($customers['data'][0]['id']);
 
                 if (is_null($customer['default_card'])) {
                     $token = create_card_token();
                     $customer->update(['card' => $token['id']]);
                 }
 
-                $scheduler = OmiseCharge::schedule(array(
+                $scheduler = \Omise\Charge::schedule(array(
                     'customer'    => $customer['id'],
                     'card'        => $customer['default_card'],
                     'amount'      => 50000,
@@ -54,7 +54,7 @@ include_once '_header.php';
             <div class="col-body content">
                 <h4>Create transfer schedule</h4>
                 <?php
-                $scheduler = OmiseTransfer::schedule([
+                $scheduler = \Omise\Transfer::schedule([
                     'recipient' => 'recp_test_59tqz77cl6uaelsj7nu',
                     'amount'    => 100000
                 ]);

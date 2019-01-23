@@ -11,7 +11,7 @@ include_once '_header.php';
             <div class="col-body content">
                 <h4>Retrieve account</h4>
                 <?php
-                $account = OmiseAccount::retrieve();
+                $account = \Omise\Account::retrieve();
                 ?>
                 <pre><?php print_r($account); ?></pre>
             </div>

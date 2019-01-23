@@ -11,7 +11,7 @@ include_once '_header.php';
             <div class="col-body content">
                 <h4>Retrieve transactions</h4>
                 <?php
-                $transactions = OmiseTransaction::retrieve('?limit=3');
+                $transactions = \Omise\Transaction::retrieve('?limit=3');
                 ?>
                 <pre><?php print_r($transactions); ?></pre>
             </div>  
@@ -37,7 +37,7 @@ include_once '_header.php';
             <div class="col-body content">
                 <h4>Retrieve transaction</h4>
                 <?php
-                $transaction = OmiseTransaction::retrieve($transactions['data'][0]['id']);
+                $transaction = \Omise\Transaction::retrieve($transactions['data'][0]['id']);
                 ?>
                 <pre><?php print_r($transaction); ?></pre>
             </div>  

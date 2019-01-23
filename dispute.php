@@ -10,7 +10,7 @@ include_once '_header.php';
         <div class="col col-6">
             <div class="col-body">
                 <?php
-                $disputes = OmiseDispute::retrieve();
+                $disputes = \Omise\Dispute::retrieve();
                 ?>
                 <pre><?php print_r($disputes); ?></pre>
             </div>  
@@ -19,7 +19,7 @@ include_once '_header.php';
         <div class="col col-6">
             <div class="col-body">
                 <?php
-                $disputes = OmiseDispute::retrieve('pending');
+                $disputes = \Omise\Dispute::retrieve('pending');
                 ?>
                 <pre><?php print_r($disputes); ?></pre>
             </div>  
@@ -30,7 +30,7 @@ include_once '_header.php';
         <div class="col col-6">
             <div class="col-body">
                 <?php
-                $dispute = OmiseDispute::retrieve('dspt_test_5dzte5rdx2dgzbdzyc0');
+                $dispute = \Omise\Dispute::retrieve('dspt_test_5dzte5rdx2dgzbdzyc0');
                 ?>
                 <pre><?php print_r($dispute); ?></pre>
             </div>  
@@ -55,7 +55,7 @@ include_once '_header.php';
         <div class="col col-12">
             <div class="col-body">
                 <?php
-                $disputes = OmiseDispute::search()->filter(['status'=>'open']);
+                $disputes = \Omise\Dispute::search()->filter(['status'=>'open']);
                 $disputes['object'];
                 ?>
                 <pre><?php print_r($disputes); ?></pre>
