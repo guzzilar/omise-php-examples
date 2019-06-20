@@ -7,20 +7,21 @@ class Template
     public static function getMenu()
     {
         return [
-            'account'     => [ 'title' => 'Acccount',    'url' => Url::toPage('account') ],
-            'balance'     => [ 'title' => 'Balance',     'url' => Url::toPage('balance') ],
-            'card'        => [ 'title' => 'Card',        'url' => Url::toPage('card') ],
-            'charge'      => [ 'title' => 'Charge',      'url' => Url::toPage('charge') ],
-            'customer'    => [ 'title' => 'Customer',    'url' => Url::toPage('customer') ],
-            'dispute'     => [ 'title' => 'Dispute',     'url' => Url::toPage('dispute') ],
-            'event'       => [ 'title' => 'Event',       'url' => Url::toPage('event') ],
-            'forex'       => [ 'title' => 'Forex',       'url' => Url::toPage('forex') ],
-            'link'        => [ 'title' => 'Link',        'url' => Url::toPage('link') ],
-            'recipient'   => [ 'title' => 'Recipient',   'url' => Url::toPage('recipient') ],
-            'schedule'    => [ 'title' => 'Schedule',    'url' => Url::toPage('schedule') ],
-            'source'      => [ 'title' => 'Source',      'url' => Url::toPage('source') ],
-            'transaction' => [ 'title' => 'Transaction', 'url' => Url::toPage('transaction') ],
-            'transfer'    => [ 'title' => 'Transfer',    'url' => Url::toPage('transfer') ],
+            'account'      => [ 'title' => 'Acccount',     'url' => Url::toPage('account') ],
+            'balance'      => [ 'title' => 'Balance',      'url' => Url::toPage('balance') ],
+            'capabilities' => [ 'title' => 'Capabilities', 'url' => Url::toPage('capabilities') ],
+            'card'         => [ 'title' => 'Card',         'url' => Url::toPage('card') ],
+            'charge'       => [ 'title' => 'Charge',       'url' => Url::toPage('charge') ],
+            'customer'     => [ 'title' => 'Customer',     'url' => Url::toPage('customer') ],
+            'dispute'      => [ 'title' => 'Dispute',      'url' => Url::toPage('dispute') ],
+            'event'        => [ 'title' => 'Event',        'url' => Url::toPage('event') ],
+            'forex'        => [ 'title' => 'Forex',        'url' => Url::toPage('forex') ],
+            'link'         => [ 'title' => 'Link',         'url' => Url::toPage('link') ],
+            'recipient'    => [ 'title' => 'Recipient',    'url' => Url::toPage('recipient') ],
+            'schedule'     => [ 'title' => 'Schedule',     'url' => Url::toPage('schedule') ],
+            'source'       => [ 'title' => 'Source',       'url' => Url::toPage('source') ],
+            'transaction'  => [ 'title' => 'Transaction',  'url' => Url::toPage('transaction') ],
+            'transfer'     => [ 'title' => 'Transfer',     'url' => Url::toPage('transfer') ],
         ];
     }
 
