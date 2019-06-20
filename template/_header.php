@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
 <head>
     <title></title>
     <style type="text/css">
@@ -39,7 +37,7 @@
         }
         .col-body:hover,
         .col:nth-child(2n) .col-body:hover {
-            background: #171717;
+            background: #111111;
         }
         .content           { padding: .5rem 1.5rem; font-family: "Gill Sans", sans-serif; font-size: .85rem; }
         .content span.note { color: #aaa; line-height: 1.25rem; background: #000; display: block; padding: .75rem; font-size: .9rem; }

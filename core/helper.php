@@ -1,4 +1,10 @@
 <?php
+function display_result($result)
+{
+    echo '<pre>';
+    print_r($result);
+    echo '</pre>';
+}
 
 function create_charge()
 {
