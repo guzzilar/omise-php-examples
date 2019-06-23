@@ -1,7 +1,7 @@
 <?php
 function display_result($result)
 {
-    echo '<pre>';
+    echo '<pre class="code-result">';
     print_r($result);
     echo '</pre>';
 }
