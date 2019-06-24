@@ -1,115 +1,63 @@
-<div class="row">
-    <div class="col col-4">
-        <div class="col-body content">
-            <h4>Retrieve charge collection</h4>
-            <?php $charges = OmiseCharge::all(); ?>
-            <?php display_result($charges); ?>
-        </div>
-    </div>
+<?php
+// Implementation ---
+$charges = \Omise\Charge::all();
 
-    <div class="col col-4">
-        <div class="col-body content">
-            <h4>Retrieve charges (filtered by <code>order=reverse_chronological</code> & <code>limit=3</code>)</h4>
-            <?php $charges = OmiseCharge::all(['order'=>'reverse_chronological', 'limit'=>3]); ?>
-            <?php display_result($charges); ?>
-        </div>
-    </div>
+// Template ---
+Template::renderColumn(array(
+    'title'       => 'Retrieve a collection of charge objects <small>(Total: ' . number_format(count($charges)) . ' items)</small>',
+    'slug'        => 'retrieve-charge-collection',
+    'description' => '',
+    'result'      => $charges,
+    'note'        => '',
+    'code'        =>
+'
+<code>$charges = <span class="code-class">\Omise\Charge</span>::<span class="code-fnc">all</span><span class="code-fnc-prths">()</span>;</code>
+<code><span class="code-fnc">print_r<span class="code-fnc-prths">(</span></span>$charges<span class="code-fnc-prths">)</span>;</code>
+'));
+?>
 
-    <div class="col col-4">
-        <div class="col-body content">
-            <h4>Retrieve charge</h4>
-            <?php
-            $charge = $charges->first();
-            $charge->reload();
-            ?>
-            <?php display_result($charge); ?>
-        </div>
-    </div>
-</div>
+<?php
+// Implementation ---
+$charges = \Omise\Charge::all([ 'limit' => 2, 'order' => 'reverse_chronological' ]);
 
-<div class="row">
-    <div class="col col-4">
-        <div class="col-body content">
-            <h4>Search charges (filtered by <code>paid=false</code>)</h4>
-            <?php
-            $searchCharges = OmiseCharge::search()->filter(['paid' => false]);
-            $searchCharges['object'];
-            ?>
-            <?php display_result($searchCharges); ?>
-        </div>
-    </div>
+// Template ---
+Template::renderColumn(array(
+    'title'       => 'Retrieve a collection of charge objects, with query condition <small>(Total: ' . number_format(count($charges)) . ' items)</small>',
+    'slug'        => '',
+    'description' => 'We can simply pass a query condition at the first argument of <code class="highlight">all()</code> method.<br/>Check <a href="https://www.omise.co/api-pagination">https://www.omise.co/api-pagination</a> for more information.',
+    'result'      => $charges,
+    'note'        => '',
+    'code'        =>
+'
+<code><span class="code-phpkey">use</span> <span class="code-class">Omise\Config</span>;</code>
+<code><span class="code-phpkey">use</span> <span class="code-class">Omise\Charge</span>;</code>
+<code></code>
+<code><span class="code-class">Config</span>::<span class="code-fnc">setPublicKey</span><span class="code-fnc-prths">(</span><span class="code-string">\'pkey_***\'</span><span class="code-fnc-prths">)</span>;</code>
+<code><span class="code-class">Config</span>::<span class="code-fnc">setSecretKey</span><span class="code-fnc-prths">(</span><span class="code-string">\'skey_***\'</span><span class="code-fnc-prths">)</span>;</code>
+<code></code>
+<code>$charges = <span class="code-class">Charge</span>::<span class="code-fnc">all</span><span class="code-fnc-prths">(</span>[</code>
+<code>    <span class="code-string">\'limit\'</span> => <span class="code-int">2</span>,</code>
+<code>    <span class="code-string">\'order\'</span> => <span class="code-string">\'reverse_chronological\'</span></code>
+<code>]<span class="code-fnc-prths">)</span>;</code>
+<code></code>
+<code><span class="code-fnc">print_r<span class="code-fnc-prths">(</span></span>$charges<span class="code-fnc-prths">)</span>;</code>
+'));
+?>
 
-    <div class="col col-4">
-        <div class="col-body content">
-            <h4>Create charge</h4>
-            <?php
-            $token  = create_card_token();
-            $charge = OmiseCharge::create([
-                'card'      => $token['id'],
-                'amount'    => 55000,
-                'currency'  => 'THB',
-                'capture'   => false
-            ]);
-            ?>
-            <?php display_result($charge); ?>
-        </div>
-    </div>
+<?php
+// Implementation ---
+$charge = \Omise\Charge::retrieve($charges->first()['id']);
 
-    <div class="col col-4">
-        <div class="col-body content">
-            <h4>Update charge</h4>
-            <?php
-            $charge->update(['description' => 'Updated at ' . time()]);
-            ?>
-            <?php display_result($charge); ?>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col col-4">
-        <div class="col-body content">
-            <h4>Capture charge</h4>
-            <?php $charge->capture(); ?>
-            <?php display_result($charge); ?>
-        </div>
-    </div>
-
-    <div class="col col-4">
-        <div class="col-body content">
-            <h4>Refund charge</h4>
-            <?php $refund = $charge->refund(['amount' => 35000]); ?>
-            <?php display_result($refund); ?>
-        </div>
-    </div>
-
-    <div class="col col-4">
-        <div class="col-body content">
-            <h4>Get refund list</h4>
-            <?php $refunds = $charge->refunds(); ?>
-            <?php display_result($refunds); ?>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col col-6">
-        <div class="col-body content">
-            <h4>Reverse charge</h4>
-            <?php
-            $token  = create_card_token();
-            $charge = OmiseCharge::create([
-                'card'      => $token['id'],
-                'amount'    => 55000,
-                'currency'  => 'THB',
-                'capture'   => false
-            ]);
-
-            $charge->reverse();
-            ?>
-            <?php display_result($charge); ?>
-
-            <span class="note">Note, this test creates a new charge before reversing the charge.</span>
-        </div>
-    </div>
-</div>
+// Template ---
+Template::renderColumn(array(
+    'title'       => 'Retrieve a charge',
+    'slug'        => 'retrieve-charge',
+    'description' => '',
+    'result'      => $charge,
+    'note'        => '',
+    'code'        =>
+'
+<code>$charge = <span class="code-class">\Omise\Charge</span>::<span class="code-fnc">retrieve</span><span class="code-fnc-prths">(</span><span class="code-string">\'chrg_***\'</span><span class="code-fnc-prths">)</span>;</code>
+<code><span class="code-fnc">print_r<span class="code-fnc-prths">(</span></span>$charge<span class="code-fnc-prths">)</span>;</code>
+'));
+?>

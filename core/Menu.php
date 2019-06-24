@@ -48,9 +48,37 @@ class Menu
                 ]
             ],
             // 'capabilities-v3' => [ 'title' => 'Capabilities', 'page' => 'capabilities-v3' ],
-            // 'charge-v3'       => [ 'title' => 'Charge',       'page' => 'charge-v3' ],
+            'charge-v3' => [
+                'title' => 'Charge',
+                'page'  => 'charge-v3',
+                'submenu' => [
+                    [ 'title' => 'all()',       'slug' => 'retrieve-charge-collection' ],
+                    [ 'title' => 'retrieve()',  'slug' => 'retrieve-charge' ],
+                    [ 'title' => 'reload()',    'slug' => 'reload-charge' ],
+                    [ 'title' => 'create()',    'slug' => 'create-charge' ],
+                    [ 'title' => 'update()',    'slug' => 'update-charge' ],
+                    [ 'title' => 'capture()',   'slug' => 'capture-charge' ],
+                    [ 'title' => 'refund()',    'slug' => 'refund-charge' ],
+                    [ 'title' => 'reverse()',   'slug' => 'reverse-charge' ],
+                    [ 'title' => 'schedule()',  'slug' => 'schedule-charge' ],
+                    [ 'title' => 'refunds()',   'slug' => 'retrieve-refund-collection' ],
+                    [ 'title' => 'schedules()', 'slug' => 'retrieve-schedule-collection' ],
+                    [ 'title' => 'search()',    'slug' => 'search-charge' ],
+                ]
+            ],
             // 'customer-v3'     => [ 'title' => 'Customer',     'page' => 'customer-v3' ],
             // 'event-v3'        => [ 'title' => 'Event',        'page' => 'event-v3' ],
+            'link-v3' => [
+                'title' => 'Link',
+                'page'  => 'link-v3',
+                'submenu' => [
+                    [ 'title' => 'create()',   'slug' => 'create-link' ],
+                    [ 'title' => 'all()',      'slug' => 'retrieve-link-collection' ],
+                    [ 'title' => 'retrieve()', 'slug' => 'retrieve-link' ],
+                    [ 'title' => 'reload()',   'slug' => 'retrieve-link' ],
+                    [ 'title' => 'search()',   'slug' => 'search-link' ],
+                ]
+            ],
         ];
     }
 
