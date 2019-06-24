@@ -67,6 +67,17 @@ class Menu
                 ]
             ],
             // 'customer-v3'     => [ 'title' => 'Customer',     'page' => 'customer-v3' ],
+            'dispute-v3' => [
+                'title' => 'Dispute',
+                'page'  => 'dispute-v3',
+                'submenu' => [
+                    [ 'title' => 'all()',      'slug' => 'retrieve-dispute-collection' ],
+                    [ 'title' => 'search()',   'slug' => 'search-dispute' ],
+                    [ 'title' => 'retrieve()', 'slug' => 'retrieve-dispute' ],
+                    [ 'title' => 'reload()',   'slug' => 'retrieve-dispute' ],
+                    [ 'title' => 'update()',   'slug' => 'update-dispute' ],
+                ]
+            ],
             'event-v3' => [
                 'title' => 'Event',
                 'page'  => 'event-v3',
