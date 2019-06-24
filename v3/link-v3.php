@@ -61,7 +61,7 @@ Template::renderColumn(array(
     'code'        =>
 '
 <code>$link = <span class="code-class">\Omise\Link</span>::<span class="code-fnc">retrieve</span><span class="code-fnc-prths">(</span><span class="code-string">\'link_***\'</span><span class="code-fnc-prths">)</span>;</code>
-<code>$link-><span class="code-fnc">reload</span><span class="code-fnc-prths">()</span> <span class="code-comment">// Optional</span></code>
+<code>$link-><span class="code-fnc">reload</span><span class="code-fnc-prths">();</span> <span class="code-comment">// Optional</span></code>
 <code></code>
 <code><span class="code-fnc">print_r<span class="code-fnc-prths">(</span></span>$link<span class="code-fnc-prths">)</span>;</code>
 '));

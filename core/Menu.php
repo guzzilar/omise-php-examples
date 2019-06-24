@@ -67,7 +67,23 @@ class Menu
                 ]
             ],
             // 'customer-v3'     => [ 'title' => 'Customer',     'page' => 'customer-v3' ],
-            // 'event-v3'        => [ 'title' => 'Event',        'page' => 'event-v3' ],
+            'event-v3' => [
+                'title' => 'Event',
+                'page'  => 'event-v3',
+                'submenu' => [
+                    [ 'title' => 'all()',      'slug' => 'retrieve-event-collection' ],
+                    [ 'title' => 'retrieve()', 'slug' => 'retrieve-event' ],
+                    [ 'title' => 'reload()',   'slug' => 'retrieve-event' ],
+                ]
+            ],
+            'forex-v3' => [
+                'title' => 'Forex',
+                'page'  => 'forex-v3',
+                'submenu' => [
+                    [ 'title' => 'retrieve()', 'slug' => 'retrieve-forex' ],
+                    [ 'title' => 'reload()',   'slug' => 'retrieve-forex' ],
+                ]
+            ],
             'link-v3' => [
                 'title' => 'Link',
                 'page'  => 'link-v3',
@@ -77,6 +93,30 @@ class Menu
                     [ 'title' => 'retrieve()', 'slug' => 'retrieve-link' ],
                     [ 'title' => 'reload()',   'slug' => 'retrieve-link' ],
                     [ 'title' => 'search()',   'slug' => 'search-link' ],
+                ]
+            ],
+            'source-v3' => [
+                'title' => 'Source',
+                'page'  => 'source-v3',
+                'submenu' => [
+                    [ 'title' => 'create()',   'slug' => 'create-source' ],
+                ]
+            ],
+            'token-v3' => [
+                'title' => 'Token',
+                'page'  => 'token-v3',
+                'submenu' => [
+                    [ 'title' => 'create()',   'slug' => 'create-token' ],
+                    [ 'title' => 'retrieve()', 'slug' => 'retrieve-token' ],
+                ]
+            ],
+            'transaction-v3' => [
+                'title' => 'Transaction',
+                'page'  => 'transaction-v3',
+                'submenu' => [
+                    [ 'title' => 'all()',      'slug' => 'retrieve-transaction-collection' ],
+                    [ 'title' => 'retrieve()', 'slug' => 'retrieve-transaction' ],
+                    [ 'title' => 'reload()',   'slug' => 'retrieve-transaction' ],
                 ]
             ],
         ];
