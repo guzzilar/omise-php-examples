@@ -22,8 +22,8 @@ class Url
     /**
      * @return string
      */
-    public static function toPage($path)
+    public static function toPage($path, $version = 3)
     {
-        return static::$baseUrl . '/page.php?page=' . $path;
+        return static::$baseUrl . '/page.php?page=' . $path . '&version=' . $version;
     }
 }

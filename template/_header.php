@@ -1,54 +1,49 @@
 <head>
     <title></title>
     <style type="text/css">
-        /*f8f8f8*/
-        /*c3248b*/
-        /*222838*/
-        /*203a6d*/
-        /*1389b2*/
-        /*9fccd5*/
-        html             { background: #f8f8f8; color: #222838; }
+        /*f6f6f6*/ /*f8f8f8*/ /*c3248b*/ /*222838*/ /*203a6d*/ /*1389b2*/ /*9fccd5*/
+        html             { background: #f6f6f6; color: #222838; }
         body             { margin: 0 auto; padding: 0; }
         a                { color: #222838; text-decoration: none; }
-
         a:hover          { color: #1389b2; }
         ul               { margin: 0; padding: 0; }
         ul li            { display: inline-block; padding-left: 1em; font-family: monospace; }
+        h3               { color: #222838; }
+        h4               { color: #203a6d; font-weight: 400; }
 
+        .clearfix        { clear: both; }
         .active a        { font-weight: 700; color: #203a6d;  }
         .active a:before { content: '> '; font-size: .25em;  }
         .active a:after  { content: ' <'; font-size: .25em;  }
         .active a:hover  { color: #1389b2; }
         .color-red       { color: #d2002a; }
-        .clearfix        { clear: both; }
         .section-nav     { padding-top: 1em; }
-        .row             { margin-bottom: 1rem; }
+
+        .page            { margin-top: 1.5em; margin-bottom: 3em; }
+
+        /*.row             { margin-bottom: 1rem; }*/
         .row:after       { content: ""; display: table; clear: both; }
         .col             { float: left; overflow-x: auto; }
         .col-12          { width: 100%; }
+        .col-8           { width: 66%; }
         .col-6           { width: 50%; }
         .col-4           { width: 33%; }
         .col-body        {
-            border-radius: 3px;
-            margin: 1em;
-            height: 600px;
             overflow-y: auto;
-            box-shadow: 0px 6px 13px -7px #000;
-            /*background: #0c0c0c;*/
-            background: #203a6d;
-            /*border: 1px solid #1389b2;*/
-
-            border-bottom: 2px solid #222838;
+            background: #f8f8f8;
             -webkit-transition: background-color 100ms linear;
                 -ms-transition: background-color 100ms linear;
                     transition: background-color 100ms linear;
         }
-        .col:nth-child(2n) .col-body { background: #203a6d; }
-        .content                 { padding: .5rem 1.5rem; font-family: "Gill Sans", sans-serif; font-size: .85rem; }
-        .content h3              { color: #9fccd5; text-shadow: 1px 1px #222838; }
-        .content h4              { color: #f8f8f8; font-weight: 400; }
-        .content span.note       { line-height: 1.5rem; display: block; padding: 1.75em .75rem 1.75em 1.25rem; margin: 1rem 0; font-size: .9rem; background: #222838; color: #b6bec5; border-radius: 2px; box-shadow: 0px 8px 12px -9px #000; border-left: 20px solid #111; }
-        .result-section          { margin-top: 2rem; }
+
+        .content-section .col-body { box-shadow: 0 -8px 10px -11px #203a6d; border-radius: 15px 15px 0 0; margin: 1em 2em; }
+        .result-section .col-body  { background: #222838; border-radius: 0; margin-top: 1em; padding-bottom: 2em; box-shadow: inset 10px -12px 12px -14px #000; border-left: 2px solid #f4f4f4;  border-bottom: 2px solid #f4f4f4; border-radius: 15px 0 0 15px; }
+        .result-section h4         { color: #f8f8f8; }
+
+        .content                   { padding: .5rem 1.5rem; font-family: "Gill Sans", sans-serif; font-size: .85rem; }
+        .content p                 { margin-top: 2em; font-size: 1rem; }
+        .note                      { line-height: 1.35rem; display: block; padding: 1.35em .75rem 1.35em 1.25rem; margin: 2em 0; font-size: .9rem; background: #F4F4F4; color: #5e657b; border-radius: 2px; box-shadow: 6px 8px 4px -9px #203a6d; border-left: 20px solid #232839; }
+        
 
         /**
          * Code Highlights
@@ -64,7 +59,8 @@
         .code-string    { color: #f8f8f8; }
         .code-int       { color: #77bbff; }
 
-        pre.code-result             { line-height: 1.4em; padding: 1em 1em 2.2em; margin: 0 0 1rem; overflow: auto; font-size: 1em; background: #111; color: #f8f8f8; border-radius: 2px; box-shadow: 0 8px 14px -5px #000; }
+        pre.code-result             { line-height: 1.4em; overflow: auto; font-size: 1em; color: #f8f8f8; }
+        /*pre.code-result             { line-height: 1.4em; padding: 1em 1em 2.2em; margin: 0 0 1rem; overflow: auto; font-size: 1em; background: #111; color: #f8f8f8; border-radius: 2px; box-shadow: 0 8px 14px -5px #000; }*/
         pre.code-result::first-line { font-weight: 700; color: #ff4747; }
 
         /**

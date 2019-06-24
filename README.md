@@ -1,6 +1,6 @@
 # A live code example for Omise-PHP
 
-<img width="1552" alt="Screen Shot 2562-06-23 at 23 12 30" src="https://user-images.githubusercontent.com/2154669/59978195-70567900-960c-11e9-85bd-09f459e78975.png">
+<img width="1552" alt="Screen Shot 2562-06-24 at 15 37 27" src="https://user-images.githubusercontent.com/2154669/60000051-01bdfd80-9696-11e9-84ac-51bba762de77.png">
 
 > ⚠️ **Disclaimer**: I'm working with Omise. However, this repository is just one of my side projects and it's not an official example from Omise Payment Gateway. Please refer to https://www.omise.co/docs as an official document, or contact support@omise.co if you are interested in using Omise Payment Gateway.
 

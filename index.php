@@ -4,7 +4,8 @@
 <html>
     <?php Template::renderHeader(); ?>
     <body>
-        <?php Template::renderNav(); ?>
+        <?php Menu::renderNavV2(); ?>
+        <?php Menu::renderNavV3(); ?>
 
         <style type="text/css">
             .featured-table td { height: 24px; }

@@ -1,49 +1,15 @@
 <?php
 class Template
 {
-    /**
-     * @return array
-     */
-    public static function getMenu()
-    {
-        return [
-            'account'      => [ 'title' => 'Acccount',     'page' => 'account' ],
-            'balance'      => [ 'title' => 'Balance',      'page' => 'balance' ],
-            'capabilities' => [ 'title' => 'Capabilities', 'page' => 'capabilities' ],
-            'card'         => [ 'title' => 'Card',         'page' => 'card' ],
-            'charge'       => [ 'title' => 'Charge',       'page' => 'charge' ],
-            'customer'     => [ 'title' => 'Customer',     'page' => 'customer' ],
-            'dispute'      => [ 'title' => 'Dispute',      'page' => 'dispute' ],
-            'event'        => [ 'title' => 'Event',        'page' => 'event' ],
-            'forex'        => [ 'title' => 'Forex',        'page' => 'forex' ],
-            'link'         => [ 'title' => 'Link',         'page' => 'link' ],
-            'recipient'    => [ 'title' => 'Recipient',    'page' => 'recipient' ],
-            'schedule'     => [ 'title' => 'Schedule',     'page' => 'schedule' ],
-            'source'       => [ 'title' => 'Source',       'page' => 'source' ],
-            'transaction'  => [ 'title' => 'Transaction',  'page' => 'transaction' ],
-            'transfer'     => [ 'title' => 'Transfer',     'page' => 'transfer' ],
-        ];
-    }
-
-    /**
-     * @return array
-     */
-    public static function getMenuV3()
-    {
-        return [
-            'account-v3'      => [ 'title' => 'Account',      'page' => 'account-v3' ],
-            'balance-v3'      => [ 'title' => 'Balance',      'page' => 'balance-v3' ],
-            'capabilities-v3' => [ 'title' => 'Capabilities', 'page' => 'capabilities-v3' ],
-            'charge-v3'       => [ 'title' => 'Charge',       'page' => 'charge-v3' ],
-            'customer-v3'     => [ 'title' => 'Customer',     'page' => 'customer-v3' ],
-            'event-v3'        => [ 'title' => 'Event',        'page' => 'event-v3' ],
-        ];
-    }
-
     public static function isPageExist($page)
     {
-        $menu = array_merge(static::getMenu(), static::getMenuV3());
+        $menu = array_merge(Menu::getMenuV2(), Menu::getMenuV3());
         return isset($menu[$page]);
+    }
+
+    public static function isVersionExist($version)
+    {
+        return in_array($version, array(2, 3));
     }
 
     public static function renderHeader()
@@ -51,44 +17,60 @@ class Template
         require_once TEMPLATE_PATH . '/_header.php';
     }
 
-    public static function renderNav()
-    {
-        require_once TEMPLATE_PATH . '/_nav.php';
-    }
-
-    public static function renderPage($page)
+    public static function renderPage($page, $version = 3)
     {
         ?>
         <!DOCTYPE html>
         <html>
             <?php static::renderHeader(); ?>
             <body>
-                <?php static::renderNav(); ?>
-                <?php require BASE_PATH . '/' . $page . '.php'; ?>
+                <?php
+                if ($version == 3): 
+                    Menu::renderNavV3();
+                else:
+                    Menu::renderNavV2();
+                endif;
+                ?>
+                <div class="page">
+                    <?php require BASE_PATH . '/v' . $version . '/' . $page . '.php'; ?>
+                </div>
             </body>
         </html>
         <?php
     }
 
-    public static function renderColumn($title, $result, $code, $note = '')
+    public static function renderColumn($content)
     {
         ?>
-        <div class="col col-6">
-            <div class="col-body">
-                <div class="content">
-                    <h3><?php echo $title; ?></h3>
-                    <h4>Implementation code:</h4>
-                    <pre class="code"><?php echo $code; ?></pre>
-                    <div class="result-section">
-                        <h4>Result:</h4>
-                        <?php display_result($result); ?>
+        <div id="<?= $content['slug']; ?>" class="row example">
+            <div class="col col-6 content-section">
+                <div class="col-body">
+                    <div class="content">
+                        <h3><?= $content['title']; ?></h3>
+                        <h4>Implementation code:</h4>
+                        <pre class="code"><?= $content['code']; ?></pre>
+
+                        <?php if ($content['description']): ?>
+                            <p><?= $content['description']; ?></p>
+                        <?php endif; ?>
+
+                        <?php if ($content['note']): ?>
+                            <span class="note"><?= $content['note']; ?></span>
+                        <?php endif; ?>
                     </div>
-                    <?php if ($note): ?>
-                        <span class="note"><?php echo $note; ?></span>
-                    <?php endif; ?>
+                </div>
+            </div>
+
+            <div class="col col-6 result-section">
+                <div class="col-body">
+                    <div class="content">
+                        <h4>Result: <small><?= strtolower($content['title']); ?></small></h4>
+                        <?php display_result($content['result']); ?>
+                    </div>
                 </div>
             </div>
         </div>
+
         <?
     }
 }
