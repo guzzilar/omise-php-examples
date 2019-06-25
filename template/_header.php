@@ -25,7 +25,7 @@
         .section-subnav li:first-child:after { content: ''; padding-left: 0; }
         .section-subnav li:last-child:after  { content: ''; padding-left: 0; }
 
-        .page            { margin-top: 1.5em; margin-bottom: 3em; }
+        .page            { max-width: 1400px; margin: 1.5em auto 3em; }
 
         /*.row             { margin-bottom: 1rem; }*/
         .row:after       { content: ""; display: table; clear: both; }
@@ -42,8 +42,8 @@
                     transition: background-color 100ms linear;
         }
 
-        .content-section .col-body { box-shadow: 0 -8px 10px -11px #203a6d; border-radius: 15px 15px 0 0; margin: 1em 2em; padding-bottom: 2em; }
-        .result-section .col-body  { max-height: 600px; background: #222838; border-radius: 0; margin-top: 1em; padding-bottom: 2em; box-shadow: inset 10px -12px 12px -14px #000; border-left: 2px solid #f4f4f4;  border-bottom: 2px solid #f4f4f4; border-radius: 15px 0 0 15px; }
+        .content-section .col-body { box-shadow: 0 -8px 10px -11px #203a6d; border-radius: 15px 15px 0 0; margin: 1em 2em 1em 1em; padding-bottom: 2em; }
+        .result-section .col-body  { max-height: 600px; background: #222838; border-radius: 0; margin-top: 1em; margin-right: 1em; padding-bottom: 2em; box-shadow: inset 10px -12px 15px -14px #000; border-left: 2px solid #f4f4f4;  border-bottom: 2px solid #f4f4f4; border-radius: 15px; }
         .result-section h4         { color: #f8f8f8; }
 
         .content                   { padding: .5rem 1.5rem; font-family: "Gill Sans", sans-serif; font-size: .85rem; }
@@ -51,14 +51,14 @@
         .content p a               { color: #1389b2; }
         .content p a:hover         { color: #9fccd5; }
         .note                      { line-height: 1.35rem; display: block; padding: 1.35em .75rem 1.35em 1.25rem; margin: 2em 0; font-size: .9rem; background: #F4F4F4; color: #5e657b; border-radius: 2px; box-shadow: 6px 8px 4px -9px #203a6d; border-left: 20px solid #232839; }
-        
+        .note.warning              { background: #de6464; color: #f8f8f8; border-color: #941f1e; }
 
         /**
          * Code Highlights
          */
         pre.code             { overflow: auto; display: block; padding: .75rem .75rem .75rem .5rem; margin: 1rem 0; font-size: .95rem; line-height: 1.75em; background: #222838; color: #b6bec5; border-radius: 2px; box-shadow: 0px 8px 12px -9px #000; counter-reset: line; }
         pre.code code        { counter-increment: line; }
-        pre.code code:before { content: counter(line) ':'; padding: .5em 1em .5em .5em; -webkit-user-select: none; font-size: .6rem; color: #425363; }
+        pre.code code:before { display: inline-block; width: 17px; padding: 0 1em 0 .25em; text-align: right;  content: counter(line) ':'; -webkit-user-select: none; font-size: .6rem; color: #425363; }
 
         .code-comment               { color: #425363; font-style: italic; }
         .code-class                 { color: #ff4747; font-weight: 700; }

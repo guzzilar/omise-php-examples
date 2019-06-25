@@ -54,6 +54,10 @@ class Template
                             <p><?= $content['description']; ?></p>
                         <?php endif; ?>
 
+                        <?php if ($content['warning']): ?>
+                            <span class="note warning"><?= $content['warning']; ?></span>
+                        <?php endif; ?>
+
                         <?php if ($content['note']): ?>
                             <span class="note"><?= $content['note']; ?></span>
                         <?php endif; ?>
