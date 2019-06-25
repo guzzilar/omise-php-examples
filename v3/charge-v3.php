@@ -29,12 +29,6 @@ Template::renderColumn(array(
     'note'        => '',
     'code'        =>
 '
-<code><span class="code-phpkey">use</span> <span class="code-class">Omise\Config</span>;</code>
-<code><span class="code-phpkey">use</span> <span class="code-class">Omise\Charge</span>;</code>
-<code></code>
-<code><span class="code-class">Config</span>::<span class="code-fnc">setPublicKey</span><span class="code-fnc-prths">(</span><span class="code-string">\'pkey_***\'</span><span class="code-fnc-prths">)</span>;</code>
-<code><span class="code-class">Config</span>::<span class="code-fnc">setSecretKey</span><span class="code-fnc-prths">(</span><span class="code-string">\'skey_***\'</span><span class="code-fnc-prths">)</span>;</code>
-<code></code>
 <code>$charges = <span class="code-class">Charge</span>::<span class="code-fnc">all</span><span class="code-fnc-prths">(</span>[</code>
 <code>    <span class="code-string">\'limit\'</span> => <span class="code-int">2</span>,</code>
 <code>    <span class="code-string">\'order\'</span> => <span class="code-string">\'reverse_chronological\'</span></code>

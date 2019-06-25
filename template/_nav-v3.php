@@ -16,8 +16,8 @@
 </ul>
 
 <?php if ($submenu) : ?>
-    <ul class="section-nav">
-        <li><strong>available methods::</strong></li>
+    <ul class="section-nav section-subnav">
+        <li><strong>Sub Topics:</strong></li>
         <?php foreach ($submenu as $menu) : ?>
             <li><a href="#<?= $menu['slug']; ?>"><?= $menu['title']; ?></a></li>
         <?php endforeach; ?>

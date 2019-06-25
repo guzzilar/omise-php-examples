@@ -31,6 +31,15 @@ class Menu
     public static function getMenuV3()
     {
         return [
+            'setup-v3' => [ 
+                'title'   => 'Getting Started',
+                'page'    => 'setup-v3',
+                'submenu' => [
+                    [ 'title' => 'Setup',              'slug' => 'setup' ],
+                    [ 'title' => 'Choose API version', 'slug' => 'setup-api-version' ],
+                    [ 'title' => 'Custom USER-AGENT',  'slug' => 'setup-user-agent' ],
+                ]
+            ],
             'account-v3' => [ 
                 'title'   => 'Account',
                 'page'    => 'account-v3',
